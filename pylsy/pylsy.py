@@ -54,10 +54,7 @@ class pylsytable(object):
             # find the length of longest word in current column
 
             key_length = len(list(col.keys())[0])
-            for value in values:
-                length = len(value)
-                if length > key_length:
-                    key_length = length
+            key_length = max(key_length, max([len(value) for value in values]))
             self.AttributesLength.append(key_length)
         self.print_head()
         self.print_value()
